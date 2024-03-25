@@ -63,7 +63,20 @@
 	 </tr>
 	 <tr>
 	   <td>포인트</td>
-	   <td>${ vo.upoint }</td>
+	   <td>
+<%-- 	   <td><c:if test="${ vo.upoint ne 0 }"> --%>
+	   <%-- <td>${ vo.['upoint'] + 1000 }</td> --%>
+<!-- 	   </c:if> -->
+<c:choose>
+<c:when test="${vo.upoint ne 0 }">
+${vo['upoint'] }
+</c:when>
+<c:otherwise>
+<span style = "color:red">없음</span>
+</c:otherwise>
+</c:choose>
+
+	   </td>
 	 </tr>
 	 <tr>
 	   <td>가입일</td>

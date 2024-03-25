@@ -24,7 +24,7 @@ public class UserController {
 	//  /Users/List
 	@RequestMapping("/List")
 	public  ModelAndView  list() {
-		// 목록 조회
+		// 사용자 목록 조회
 		List<UserVo>  userList = userMapper.getUserList();
 		
 		ModelAndView  mv       = new ModelAndView();
@@ -89,6 +89,17 @@ public class UserController {
         mv.setViewName("users/update");
         
         return mv;
+	}
+	
+	// /Users/Update
+	public ModelAndView update( UserVo userVo ) {
+		
+		log.info( "userVo : {}", userVo);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/Users/List");
+		
+		return mv;
+		
 	}
 	
 	
